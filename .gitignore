@@ -1,5 +1,3 @@
-/.vscode
-/fractal.o
-/main.o
-/Mandelbrot.exe
-/pixel.o
+.vscode
+*.exe
+*.o

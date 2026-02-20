@@ -2,6 +2,7 @@
 #define FRACTAL_H
 
 #include "pixel.h"
+#include <filesystem>
 #include <iostream>
 #include <unordered_map>
 #include <vector>
@@ -13,15 +14,19 @@ private:
   sf::Image image;
   sf::Texture texture;
   sf::Sprite sprite;
-  long double xMin, xMax, yMin, yMax, resolution;
+  long double xMin, xMax, yMin, yMax, xResolution, yResolution;
   int width, height;
+  int screenshotCount = 0;
   void clearPixels();
 
 public:
   void update(int startIndex, int stopIndex);
   void initialize(int width, int height, sf::Color bgColor);
-  void zoom(long double scale, sf::Vector2f position);
+  void zoom(long double scale, long double xPosition, long double yPosition);
   void draw(sf::RenderWindow &window);
+  std::string getDataString();
+  void screenshot();
+  unsigned int getPixelCount();
   ~Fractal();
 };
 
